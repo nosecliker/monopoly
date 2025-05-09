@@ -1,0 +1,33 @@
+from numpy.random import randint as rng
+
+
+def roll():
+    die1= rng(1,7)
+    die2=rng(1,7)
+    total = die1 + die2
+    return total
+class Player1:
+    def __init__(self):
+        self.name="John"
+        print("player created")
+        self.location=0
+        self.money=1500
+    def move(self):
+       self.location=self.location+roll()
+       print(self.location)
+    def payBank(self,amount):
+        self.money=self.money-amount
+        print (self.money)
+    def payPlayer(self,money):
+        self.money=self.money-amount
+        player.money=playermoney+amount
+johnPlayer=Player1()
+print (johnPlayer.name)
+johnPlayer.payBank(200)
+johnPlayer.move()
+johnPlayer.move()
+johnPlayer.move()
+
+
+
+

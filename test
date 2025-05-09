@@ -1,0 +1,3 @@
+myString = "dog"
+myString - captiallize ()
+Print myString
