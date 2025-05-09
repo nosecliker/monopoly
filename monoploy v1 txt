@@ -1,12 +1,18 @@
 from numpy.random import randint as rng
-
+med=["Mediterranean avenue",1,2,60, False,0,0]
+baltic=["Baltic avenue",2,4,60,False,0,0]
+charles=["Charles place",11,10,140,False,0,2]
+kentucky=["Kentucky avenue",21,18,220,False,0,4]
+vermont=["Vermont avenue",6,6,100,False,0,1]
+connecticut=["Connecticut",9,8,120,False,0,1]
+virgina=["Virgina avenue",14,12,160,False,0,2]
 
 def roll():
     die1= rng(1,7)
     die2=rng(1,7)
     total = die1 + die2
     return total
-class Player1:
+class Player:
     def __init__(self):
         self.name="John"
         print("player created")
@@ -18,16 +24,18 @@ class Player1:
     def payBank(self,amount):
         self.money=self.money-amount
         print (self.money)
-    def payPlayer(self,money):
+    def payPlayer(self,amount,player):
         self.money=self.money-amount
-        player.money=playermoney+amount
-johnPlayer=Player1()
-print (johnPlayer.name)
-johnPlayer.payBank(200)
-johnPlayer.move()
-johnPlayer.move()
-johnPlayer.move()
+        player.money=player.money+amount
+john=Player()
+print (john.name)
 
-
+john.move()
+john.move()
+john.move()
+ben=Player()
+ben.payPlayer(200,john)
+print(ben.money)
+print(john.money)
 
 
