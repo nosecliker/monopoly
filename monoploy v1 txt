@@ -1,11 +1,26 @@
 from numpy.random import randint as rng
-med=["Mediterranean avenue",1,2,60, False,0,0]
-baltic=["Baltic avenue",2,4,60,False,0,0]
-charles=["Charles place",11,10,140,False,0,2]
-kentucky=["Kentucky avenue",21,18,220,False,0,4]
-vermont=["Vermont avenue",6,6,100,False,0,1]
-connecticut=["Connecticut",9,8,120,False,0,1]
-virgina=["Virgina avenue",14,12,160,False,0,2]
+properties=[["Mediterranean avenue",1,2,60, False,0,0],
+["Baltic avenue",2,4,60,False,0,0],
+["Charles place",11,10,140,False,0,2],
+["Kentucky avenue",21,18,220,False,0,4],
+["Vermont avenue",6,6,100,False,0,1],
+["Connecticut",9,8,120,False,0,1],
+["Virgina avenue",14,12,160,False,0,2],
+["Oriental Avenue", 6, 6, 100, False, 0, 1],
+["States Avenue", 13, 10, 140, False, 0, 2],
+["St. James Place", 16, 14, 180, False, 0, 3],
+["Tennessee Avenue", 18, 14, 180, False, 0, 3],
+["New York Avenue", 19, 16, 200, False, 0, 3],
+["Indiana Avenue", 23, 18, 220, False, 0, 4],
+["Illinois Avenue", 24, 20, 240, False, 0, 4],
+["Atlantic Avenue", 26, 22, 260, False, 0, 5],
+["Ventnor Avenue", 27, 22, 280, False, 0, 5],
+["Marvin Gardens", 29, 24, 280, False, 0, 5],
+["Pacific Avenue", 31, 26, 300, False, 0, 6],
+["North Carolina Avenue", 32, 26, 300, False, 0, 6],
+["Pennsylvania Avenue", 34, 28, 320, False, 0, 6],
+["Park Place", 37, 35, 350, False, 0, 7],
+["Boardwalk", 39, 50, 400, False, 0, 7]]
 
 def roll():
     die1= rng(1,7)
@@ -13,13 +28,18 @@ def roll():
     total = die1 + die2
     return total
 class Player:
-    def __init__(self):
-        self.name="John"
+    def __init__(self,new):
+        self.name=new
         print("player created")
         self.location=0
         self.money=1500
+        self.properties=[]
     def move(self):
        self.location=self.location+roll()
+       if self.location>=40:
+            self.location
+            self.location=self.location%40
+            self.money=self.money+200
        print(self.location)
     def payBank(self,amount):
         self.money=self.money-amount
@@ -27,15 +47,24 @@ class Player:
     def payPlayer(self,amount,player):
         self.money=self.money-amount
         player.money=player.money+amount
-john=Player()
-print (john.name)
-
-john.move()
-john.move()
-john.move()
-ben=Player()
-ben.payPlayer(200,john)
-print(ben.money)
-print(john.money)
-
-
+    def buyProperty(self,property):
+        if property in self.properties:
+            print ("no!")
+        elif property in self.opp[0].properties:
+            print ("no!")
+            self.payPlayer(property[2],self.opp[0])
+        else:
+            self.money=self.money-property[3]
+            self.properties=self.properties+[property]
+        
+    def pront (self):
+        print (list(map(lambda property:property[0],self.properties)))
+count=int(input("How many players"))
+playlist=[]
+while count>0:
+    new=input("Name?")
+    (new)=Player(new)
+    playlist=playlist+[new]
+    count=count-1
+while list(filter(lambda player:player.money<0,playlist))==[]:
+   pass
