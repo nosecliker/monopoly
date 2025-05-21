@@ -3,9 +3,9 @@ properties=[["Mediterranean avenue",1,2,60, False,0,0],
 ["Baltic avenue",2,4,60,False,0,0],
 ["Charles place",11,10,140,False,0,2],
 ["Kentucky avenue",21,18,220,False,0,4],
-["Vermont avenue",6,6,100,False,0,1],
+["Vermont avenue",8,6,100,False,0,1],
 ["Connecticut",9,8,120,False,0,1],
-["Virgina avenue",14,12,160,False,0,2],
+["Virginia avenue",14,12,160,False,0,2],
 ["Oriental Avenue", 6, 6, 100, False, 0, 1],
 ["States Avenue", 13, 10, 140, False, 0, 2],
 ["St. James Place", 16, 14, 180, False, 0, 3],
@@ -21,7 +21,7 @@ properties=[["Mediterranean avenue",1,2,60, False,0,0],
 ["Pennsylvania Avenue", 34, 28, 320, False, 0, 6],
 ["Park Place", 37, 35, 350, False, 0, 7],
 ["Boardwalk", 39, 50, 400, False, 0, 7]]
-
+chance[7,22]
 def roll():
     die1= rng(1,7)
     die2=rng(1,7)
@@ -67,4 +67,6 @@ while count>0:
     playlist=playlist+[new]
     count=count-1
 while list(filter(lambda player:player.money<0,playlist))==[]:
-   pass
+    playlist[0].move()
+    print(list(filter(lambda property:property[1]==playlist[0].location,properties)))
+    input("hi")
